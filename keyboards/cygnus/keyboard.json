@@ -5,6 +5,7 @@
     "development_board": "promicro",
     "diode_direction": "COL2ROW",
     "split": {
+        "enabled": true,
         "serial": {
             "pin": "D2"
         },
