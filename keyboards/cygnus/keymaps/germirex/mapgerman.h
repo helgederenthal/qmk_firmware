@@ -9,7 +9,7 @@
 #define DE_FSLH S(KC_7)      // /
 #define DE_STAR S(KC_RBRC)   // *
 
-#define DE_SEMI S(KC_COM)    // ;
+#define DE_SEMI S(KC_COMM)   // ;
 #define DE_COLO S(KC_DOT)    // :
 
 #define DE_AT   RALT(KC_Q)   // @
