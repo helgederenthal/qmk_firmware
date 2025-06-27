@@ -1,6 +1,14 @@
 #include QMK_KEYBOARD_H
 #include "./mapgerman.h"
 
+#define DEF 0
+#define MED 1
+#define NAV 2
+#define MOU 3
+#define SYM 4
+#define NUM 5
+#define FUN 6
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
@@ -16,10 +24,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *               └───┤TAB│   │ENT├───┘
       *                   └───┘   └───┘
       */
-    [0] = LAYOUT_split_3x5_3(
+    [DEF] = LAYOUT_split_3x5_3(
            KC_Q,        KC_W,        KC_F,        KC_P,    KC_B,                       KC_J,       KC_L,        KC_U,        DE_Y,     KC_QUOT,
     LGUI_T(KC_A),LALT_T(KC_R),LCTL_T(KC_S),LSFT_T(KC_T),   KC_G,                       KC_M,RSFT_T(KC_N),RCTL_T(KC_E),LALT_T(KC_I),RGUI_T(KC_O),
            DE_Z,        KC_X,        KC_C,        KC_D,    KC_V,                       KC_K,       KC_H,     KC_COMM,      KC_DOT,     DE_FSLH,
-                                                KC_ESC,  KC_SPC, KC_TAB,   KC_ENT,  KC_BSPC,  KC_DEL
+                                         LT(MED,KC_ESC), KC_SPC, KC_TAB,    KC_ENT, KC_BSPC,     KC_DEL
+    ),
+    [MED] = LAYOUT_split_3x5_3(
+        _______,     _______,     _______,      _______, _______,                   _______,    _______,     _______,     _______,     _______,
+    LGUI_T(KC_MPRV),LALT_T(KC_VOLD),LCTL_T(KC_VOLU),LSFT_T(KC_MNXT),_______,_______,RSFT_T(KC_MPRV),RCTL_T(KC_VOLD),LALT_T(KC_VOLU),RGUI_T(KC_MNXT),
+        _______,     _______,        KC_MUTE,   KC_MPLY, _______,                   _______,    _______,     _______,     _______,     _______,
+                                                _______, _______, _______, KC_MSTP, KC_MPLY,    KC_MUTE
     )
 };
