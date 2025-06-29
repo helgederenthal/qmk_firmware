@@ -11,6 +11,19 @@
 
 #define _______ KC_NO
 
+const key_override_t lt = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, DE_LT);
+const key_override_t gt = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, DE_GT);
+const key_override_t ques = ko_make_basic(MOD_MASK_SHIFT, DE_FSLH, DE_QUES);
+const key_override_t dqt = ko_make_basic(MOD_MASK_SHIFT, DE_SQT, DE_DQT);
+
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+	&lt,
+    &gt,
+    &ques,
+    &dqt,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
@@ -27,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                   └───┘   └───┘
       */
     [DEF] = LAYOUT_split_3x5_3(
-           KC_Q,        KC_W,        KC_F,        KC_P,    KC_B,                       KC_J,       KC_L,        KC_U,        DE_Y,     KC_QUOT,
+           KC_Q,        KC_W,        KC_F,        KC_P,    KC_B,                       KC_J,       KC_L,        KC_U,        DE_Y,     DE_SQT,
     LGUI_T(KC_A),LALT_T(KC_R),LCTL_T(KC_S),LSFT_T(KC_T),   KC_G,                       KC_M,RSFT_T(KC_N),RCTL_T(KC_E),LALT_T(KC_I),RGUI_T(KC_O),
            DE_Z,        KC_X,        KC_C,        KC_D,    KC_V,                       KC_K,       KC_H,     KC_COMM,      KC_DOT,     DE_FSLH,
                              LT(MED,KC_ESC),LT(NAV,KC_SPC),LT(MOU,KC_TAB),LT(SYM,KC_ENT),LT(NUM,KC_BSPC),LT(FUN,KC_DEL)
